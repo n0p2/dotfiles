@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# TODO add logic for checking existence of 
+# virtualenv/ipython, but also python packages 
+
+python --version
+
+command -v pip >/dev/null 2>&1 || sudo easy_install pip || { echo "ERROR. Failed installing pip. Script Aborted."; exit 1; }
+
+pip_install () {
+  command -v $1 >/dev/null 2>&1 || sudo pip install $1 || { echo "ERROR. Failed installing $1. Script Aborted."; exit 1; }
+  $1 --version
+}
+
+#pip_install virtualenv  
+
+pip_install ipython
+#ipython --version
