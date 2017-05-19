@@ -52,7 +52,8 @@ source $venv_d_e/bin/activate
 is_venv=$(python -c "import sys; print(hasattr(sys, 'real_prefix'))")
 [[ $is_venv = True ]] || { echo "ERROR. Not in venv. Script aborted"; exit 1; }
 
-pip install numpy scipy matplotlib pandas
+pip install numpy scipy matplotlib pandas pandasql
+pip install requests
 
 #pip freeze > requirements.txt
 #pip install -r requirements.txt
